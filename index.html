@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>hack budget</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+
+    <body>
+        <h1>hack budget</h1>
+
+        <div class="grid-2">
+            <div class="box">
+                <div class="grid-2" style="margin-bottom: 0">
+                    <div class="input-group">
+                        <label>nerd count</label>
+                        <input
+                            type="number"
+                            id="inp-nerds"
+                            value="50"
+                            oninput="updateConfig('nerds', this.value)"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label>show up %</label>
+                        <input
+                            type="number"
+                            id="inp-turnout"
+                            value="50"
+                            oninput="updateConfig('turnout', this.value)"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label>cash/nerd</label>
+                        <input
+                            type="number"
+                            id="inp-cash"
+                            value="150"
+                            oninput="updateConfig('cash', this.value)"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label>extra cash</label>
+                        <input
+                            type="number"
+                            id="inp-sugar"
+                            value="0"
+                            oninput="updateConfig('sugar', this.value)"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="box glow" id="status-box">
+                <div class="stat-block">
+                    <span class="stat-label">stash</span>
+                    <span id="txt-total" class="val">0</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-label">burned</span>
+                    <span id="txt-spent" class="val burned">0</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-label">surviving</span>
+                    <span id="txt-left" class="val">0</span>
+                </div>
+                <div class="progress-wrap">
+                    <div id="bar-fill" class="progress-bar"></div>
+                    <div id="bar-text" class="progress-text">0% burned</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="actions">
+                <button onclick="addItem()">+ buy more stupid stuff</button>
+                <button class="danger-btn" onclick="nukeIt()">
+                    nuke everything
+                </button>
+            </div>
+
+            <div class="scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%">what?</th>
+                            <th style="width: 15%">vital?</th>
+                            <th style="width: 15%">price</th>
+                            <th style="width: 15%">how many?</th>
+                            <th style="width: 15%">damage</th>
+                            <th style="width: 10%">yeet</th>
+                        </tr>
+                    </thead>
+                    <tbody id="loot-body"></tbody>
+                </table>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
